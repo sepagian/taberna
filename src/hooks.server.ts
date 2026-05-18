@@ -1,12 +1,17 @@
-import type { Handle } from '@sveltejs/kit';
-import { building } from '$app/environment';
-import { createAuth } from '$lib/server/auth';
-import { svelteKitHandler } from 'better-auth/svelte-kit';
+import type { Handle } from "@sveltejs/kit";
+import { svelteKitHandler } from "better-auth/svelte-kit";
+import { building } from "$app/environment";
+import { createAuth } from "$lib/server/auth";
 
 const handleBetterAuth: Handle = async ({ event, resolve }) => {
-	if (!event.platform?.env?.DB) throw new Error('D1 binding "DB" not found - are you running with wrangler?');
+	const d1 = event.platform?.env?.DB ?? null;
+	if (!d1 && process.env.NODE_ENV !== "development") {
+		throw new Error(
+			'D1 binding "DB" not found - are you running with wrangler?'
+		);
+	}
 
-	event.locals.auth = createAuth(event.platform.env.DB);
+	event.locals.auth = createAuth(d1);
 
 	const { auth } = event.locals;
 	const session = await auth.api.getSession({ headers: event.request.headers });
