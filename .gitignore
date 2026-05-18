@@ -6,6 +6,7 @@ drizzle
 .wrangler
 .husky
 data.sqlite
+docs
 
 # Output
 .output
