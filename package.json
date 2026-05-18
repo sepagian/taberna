@@ -67,7 +67,7 @@
     "vaul-svelte": "^1.0.0-next.7",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plus": "latest",
-    "vitest": "^0.1.21",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
     "wrangler": "^4.92.0",
     "zod": "^4.4.3"
   },
