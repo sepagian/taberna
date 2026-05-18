@@ -1,15 +1,33 @@
 {
-	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "taberna",
-	"compatibility_date": "2026-05-06",
-	"compatibility_flags": [
-		"nodejs_als"
-	],
-	"main": ".svelte-kit/cloudflare/_worker.js",
-	"assets": {
-		"binding": "ASSETS",
-		"directory": ".svelte-kit/cloudflare"
-	},
-	"workers_dev": true,
-	"preview_urls": true
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "taberna",
+  "compatibility_date": "2026-05-06",
+  "compatibility_flags": ["nodejs_als"],
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  },
+  "workers_dev": true,
+  "preview_urls": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "taberna",
+      "database_id": "04d1817e-fb8c-4d0a-8f86-f6337446f327",
+      "remote": false
+    }
+  ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
+  "placement": {
+    "mode": "smart"
+  }
 }
