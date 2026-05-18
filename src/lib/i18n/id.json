@@ -49,6 +49,11 @@
   "setting": {
     "back_to_app": "Kembali"
   },
+  "legal": {
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Layanan",
+    "last_updated": "Terakhir diperbarui: 18 Mei 2026"
+  },
   "toast": {
     "loading": "Memuat...",
     "list_created": "{name} berhasil dibuat",
