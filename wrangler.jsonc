@@ -2,7 +2,9 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "taberna",
   "compatibility_date": "2026-05-06",
-  "compatibility_flags": ["nodejs_als"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "main": ".svelte-kit/cloudflare/_worker.js",
   "assets": {
     "binding": "ASSETS",
@@ -29,5 +31,16 @@
   },
   "placement": {
     "mode": "smart"
+  },
+  "secrets": {
+    "required": [
+      "CLOUDFLARE_ACCOUNT_ID",
+      "CLOUDFLARE_DATABASE_ID",
+      "CLOUDFLARE_D1_TOKEN",
+      "BETTER_AUTH_SECRET",
+      "ORIGIN",
+      "GOOGLE_CLIENT_ID",
+      "GOOGLE_CLIENT_SECRET"
+    ]
   }
 }
