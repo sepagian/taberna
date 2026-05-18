@@ -20,7 +20,6 @@ export default defineConfig({
 		},
 	},
 	test: {
-		environmentMatchGlobs: [["src/lib/components/**", "happy-dom"]],
 		globals: true,
 		setupFiles: ["./src/test/setup.ts"],
 	},
