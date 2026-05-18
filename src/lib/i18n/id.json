@@ -1,0 +1,69 @@
+{
+  "app": {
+    "brand": "Taberna",
+    "hi": "Hai, {name}"
+  },
+  "hero": {
+    "title": "Mau belanja apa hari ini?",
+    "subtitle": "Pilih daftar yang mau kamu pakai, atau buat yang baru kalau lagi butuh."
+  },
+  "list": {
+    "label": "Daftar",
+    "item_count": "{checked}/{total} barang",
+    "new": "Buat daftar baru",
+    "new_description": "Kasih nama biar kamu gampang nemuin nanti.",
+    "new_subtitle": "Ketuk untuk memulai",
+    "empty_title": "Belum ada daftar",
+    "empty_subtitle": "Buat daftar pertamamu dengan tap di bawah ini",
+    "empty_button": "Buat daftar baru",
+    "rename": "Ganti nama",
+    "rename_description": "Isi dengan nama yang kamu inginkan",
+    "delete": "Hapus",
+    "delete_confirm": "Yakin ingin menghapus?",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "share": "Bagikan",
+    "continue": "Lanjutkan"
+  },
+  "item": {
+    "active": "Aktif",
+    "completed": "Selesai",
+    "no_active": "Tidak ada item aktif",
+    "no_completed": "Tidak ada item selesai",
+    "no_match": "Tidak ada item dengan nama yang sama",
+    "add_placeholder": "Tambah item baru...",
+    "add_button": "Tambah",
+    "search_placeholder": "Cari barang..."
+  },
+  "auth": {
+    "title": "Mulai belanja bersama!",
+    "subtitle": "Masuk atau buat akun dalam hitungan detik",
+    "continue_google": "Lanjutkan dengan Google",
+    "page_title": "Lanjutkan ke Taberna"
+  },
+  "user": {
+    "manage": "Kelola akun",
+    "logout": "Keluar",
+    "switch_theme": "Ganti tema"
+  },
+  "setting": {
+    "back_to_app": "Kembali"
+  },
+  "toast": {
+    "loading": "Memuat...",
+    "list_created": "{name} berhasil dibuat",
+    "error": "Terjadi kesalahan",
+    "item": {
+      "add_success": "{count} item berhasil ditambahkan",
+      "toggle_success": "Status item diperbarui",
+      "edit_success": "Nama item diubah",
+      "delete_success": "Item dihapus",
+      "reset_success": "{count} item direset"
+    },
+    "list": {
+      "rename_success": "Daftar diganti nama",
+      "delete_success": "{name} dihapus",
+      "refresh_success": "Daftar diperbarui"
+    }
+  }
+}
