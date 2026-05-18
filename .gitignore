@@ -2,14 +2,18 @@ node_modules
 .opencode
 .vscode
 .vite-hooks
+drizzle
+.wrangler
+.husky
+data.sqlite
 
 # Output
 .output
 .vercel
 .netlify
 .wrangler
-/.svelte-kit
-/build
+.svelte-kit
+.build
 
 # OS
 .DS_Store
