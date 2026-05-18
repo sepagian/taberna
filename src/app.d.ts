@@ -1,21 +1,21 @@
-import type { User, Session } from 'better-auth/minimal';
-import { createAuth } from '$lib/server/auth';
+import type { Session, User } from "better-auth/minimal";
+import { createAuth } from "$lib/server/auth";
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
 declare global {
 	namespace App {
 		interface Platform {
-			env: Env;
-			ctx: ExecutionContext;
 			caches: CacheStorage;
-			cf?: IncomingRequestCfProperties
+			cf?: IncomingRequestCfProperties;
+			ctx: ExecutionContext;
+			env: Env;
 		}
 
 		interface Locals {
-			user?: User;
+			auth: ReturnType<typeof createAuth>;
 			session?: Session;
-			auth: ReturnType<typeof createAuth>
+			user?: User;
 		}
 
 		// interface Error {}
@@ -23,5 +23,3 @@ declare global {
 		// interface PageState {}
 	}
 }
-
-export {};
