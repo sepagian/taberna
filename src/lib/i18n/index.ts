@@ -4,5 +4,5 @@ register("id", () => import("./id.json"));
 
 init({
 	fallbackLocale: "id",
-	initialLocale: getLocaleFromNavigator(),
+	initialLocale: getLocaleFromNavigator() ?? "id",
 });
