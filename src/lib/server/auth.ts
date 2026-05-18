@@ -5,6 +5,8 @@ import { getRequestEvent } from "$app/server";
 import { env } from "$env/dynamic/private";
 import { getKysely } from "$lib/server/db";
 
+const prod = process.env.NODE_ENV !== "development";
+
 const getAuthConfig = () =>
 	({
 		baseURL: env.ORIGIN,
@@ -21,24 +23,26 @@ const getAuthConfig = () =>
 				clientSecret: env.GOOGLE_CLIENT_SECRET as string,
 			},
 		},
-		session: {
-			cookieCache: {
-				enabled: true,
-				maxAge: 60,
+		...(prod && {
+			session: {
+				cookieCache: {
+					enabled: true,
+					maxAge: 60,
+				},
 			},
-		},
+			advanced: {
+				defaultCookieAttributes: {
+					sameSite: "none" as const,
+					secure: true,
+					httpOnly: true,
+				},
+				crossSubDomainCookies: {
+					enabled: true,
+					domain: "taberna.sepagian.xyz",
+				},
+			},
+		}),
 		plugins: [sveltekitCookies(getRequestEvent)],
-		advanced: {
-			defaultCookieAttributes: {
-				sameSite: "none" as const,
-				secure: true,
-				httpOnly: true,
-			},
-			crossSubDomainCookies: {
-				enabled: true,
-				domain: "taberna.sepagian.xyz",
-			},
-		},
 	}) satisfies Omit<Parameters<typeof betterAuth>[0], "database">;
 
 export const createAuth = (d1: D1Database | null) =>
