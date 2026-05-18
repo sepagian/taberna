@@ -2,9 +2,8 @@
 	import { MotionButton } from "@humanspeak/svelte-motion";
 	import RefreshIcon from "@iconify-svelte/tabler/refresh";
 	import XFilledIcon from "@iconify-svelte/tabler/x-filled";
-	import { Button, Tabs } from "bits-ui";
+	import { Tabs } from "bits-ui";
 	import { _ } from "svelte-i18n";
-	import { invalidateAll } from "$app/navigation";
 	import { addItems } from "$lib/actions/item";
 	import { refreshList } from "$lib/actions/list";
 	import { authClient } from "$lib/client/auth-client";
