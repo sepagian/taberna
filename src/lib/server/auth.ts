@@ -27,9 +27,7 @@ const getAuthConfig = () =>
 				maxAge: 60,
 			},
 		},
-		plugins: [
-			sveltekitCookies(getRequestEvent),
-		],
+		plugins: [sveltekitCookies(getRequestEvent)],
 		advanced: {
 			defaultCookieAttributes: {
 				sameSite: "none" as const,
@@ -38,7 +36,7 @@ const getAuthConfig = () =>
 			},
 			crossSubDomainCookies: {
 				enabled: true,
-				domain: "taberna.rizky.workers.dev",
+				domain: "taberna.sepagian.xyz",
 			},
 		},
 	}) satisfies Omit<Parameters<typeof betterAuth>[0], "database">;
