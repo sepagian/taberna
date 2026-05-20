@@ -185,19 +185,19 @@ Most formatting and common issues are automatically fixed by Biome. Run `bun x u
 
 ## Tech Stack
 
-| Layer         | Technology                                              |
-| ------------- | ------------------------------------------------------- |
-| Framework     | SvelteKit 2 + Svelte 5 (runes mode enforced)              |
-| Adapter       | `@sveltejs/adapter-cloudflare`                          |
-| Database      | Cloudflare D1 (production) / better-sqlite3 (local dev)   |
-| ORM/Query     | Drizzle ORM (schema) + Kysely (runtime queries)         |
+| Layer         | Technology                                                    |
+| ------------- | ------------------------------------------------------------- |
+| Framework     | SvelteKit 2 + Svelte 5 (runes mode enforced)                  |
+| Adapter       | `@sveltejs/adapter-cloudflare`                                |
+| Database      | Cloudflare D1 (production) / better-sqlite3 (local dev)       |
+| ORM/Query     | Drizzle ORM (schema) + Kysely (runtime queries)               |
 | Auth          | Better Auth (minimal) with Kysely adapter — Google OAuth only |
-| Styling       | UnoCSS + `@unocss/reset/tailwind-v4.css`                |
-| UI Primitives | bits-ui, vaul-svelte                                    |
-| Forms         | `@tanstack/svelte-form` + Zod validation                |
-| Icons         | `@iconify-svelte/tabler/*`                              |
-| i18n          | svelte-i18n (fallback: `id`)                            |
-| Tooling       | Vite+, Ultracite (Biome), TypeScript 6                  |
+| Styling       | UnoCSS + `@unocss/reset/tailwind-v4.css`                      |
+| UI Primitives | bits-ui, vaul-svelte                                          |
+| Forms         | `@tanstack/svelte-form` + Zod validation                      |
+| Icons         | `@iconify-svelte/tabler/*`                                    |
+| i18n          | svelte-i18n (fallback: `id`)                                  |
+| Tooling       | Vite+, Ultracite (Biome), TypeScript 6                        |
 
 ## Directory Structure
 
@@ -413,20 +413,20 @@ bunx playwright test      # requires vp dev running, or auto-starts it
 
 ### Test File Locations
 
-| File | Type | Tests |
-|------|------|-------|
-| `src/lib/utils/id.test.ts` | Unit | CUID2 ID generation |
-| `src/lib/utils/parse.test.ts` | Unit | Input parsing + titleCase |
-| `src/lib/server/serializers.test.ts` | Unit | DB row → app type conversion |
-| `src/lib/server/db/query.test.ts` | Integration | ListQueries + ItemQueries against sql.js |
-| `src/lib/client/api.test.ts` | Unit | Fetch wrapper + ApiError |
-| `src/routes/api/lists/server.test.ts` | Integration | GET /api/lists |
-| `src/routes/api/list/server.test.ts` | Integration | POST /api/list |
-| `src/routes/api/list/[id]/server.test.ts` | Integration | GET/PATCH/DELETE /api/list/:id |
-| `src/routes/api/item/server.test.ts` | Integration | POST /api/item |
-| `src/routes/api/item/[id]/server.test.ts` | Integration | PATCH/DELETE /api/item/:id |
-| `tests/public-list.spec.ts` | E2E | Public list viewing, item toggling |
-| `tests/auth-redirects.spec.ts` | E2E | Auth redirect guards |
+| File                                      | Type        | Tests                                    |
+| ----------------------------------------- | ----------- | ---------------------------------------- |
+| `src/lib/utils/id.test.ts`                | Unit        | CUID2 ID generation                      |
+| `src/lib/utils/parse.test.ts`             | Unit        | Input parsing + titleCase                |
+| `src/lib/server/serializers.test.ts`      | Unit        | DB row → app type conversion             |
+| `src/lib/server/db/query.test.ts`         | Integration | ListQueries + ItemQueries against sql.js |
+| `src/lib/client/api.test.ts`              | Unit        | Fetch wrapper + ApiError                 |
+| `src/routes/api/lists/server.test.ts`     | Integration | GET /api/lists                           |
+| `src/routes/api/list/server.test.ts`      | Integration | POST /api/list                           |
+| `src/routes/api/list/[id]/server.test.ts` | Integration | GET/PATCH/DELETE /api/list/:id           |
+| `src/routes/api/item/server.test.ts`      | Integration | POST /api/item                           |
+| `src/routes/api/item/[id]/server.test.ts` | Integration | PATCH/DELETE /api/item/:id               |
+| `tests/public-list.spec.ts`               | E2E         | Public list viewing, item toggling       |
+| `tests/auth-redirects.spec.ts`            | E2E         | Auth redirect guards                     |
 
 ### Component Tests
 
