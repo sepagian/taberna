@@ -44,7 +44,7 @@
 	}
 </script>
 
-<section class="px-2 max-w-lg mx-auto flex flex-col gap-2">
+<section class="px-2 max-w-lg mx-auto flex flex-col gap-2 font-sans">
 	<Tabs.Root value="active" class="mt-12">
 		<Tabs.List class="flex gap-2">
 			<Tabs.Trigger

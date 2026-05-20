@@ -9,8 +9,8 @@ import { getKysely } from "$lib/server/db";
  * @returns Kysely database instance typed for the application schema
  */
 export function getDb(event: { platform?: App.Platform | null }): Kysely<DB> {
-	const d1 = event.platform?.env?.DB ?? null;
-	return getKysely(d1) as Kysely<DB>;
+  const d1 = event.platform?.env?.DB ?? null;
+  return getKysely(d1) as Kysely<DB>;
 }
 
 /**
@@ -19,14 +19,14 @@ export function getDb(event: { platform?: App.Platform | null }): Kysely<DB> {
  * @returns The user's ID or null if not authenticated
  */
 export function getUserId(event: { locals: App.Locals }): string | null {
-	return event.locals.user?.id ?? null;
+  return event.locals.user?.id ?? null;
 }
 
 /**
  * Returns a standardized 401 Unauthorized JSON response.
  */
 export function unauthorized(): Response {
-	return json({ error: "unauthorized" }, { status: 401 });
+  return json({ error: "unauthorized" }, { status: 401 });
 }
 
 /**
@@ -34,5 +34,5 @@ export function unauthorized(): Response {
  * @param message - Optional custom error message
  */
 export function notFound(message = "not found"): Response {
-	return json({ error: message }, { status: 404 });
+  return json({ error: message }, { status: 404 });
 }

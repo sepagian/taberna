@@ -5,49 +5,49 @@ import { POST } from "./+server";
 const { setUserId } = setupApiTest();
 
 describe("POST /api/list", () => {
-	it("returns 401 when unauthenticated", async () => {
-		setUserId(null);
-		const event = createEvent({
-			request: new Request("http://localhost", {
-				method: "POST",
-				body: JSON.stringify({ name: "Test" }),
-			}),
-		});
+  it("returns 401 when unauthenticated", async () => {
+    setUserId(null);
+    const event = createEvent({
+      request: new Request("http://localhost", {
+        method: "POST",
+        body: JSON.stringify({ name: "Test" }),
+      }),
+    });
 
-		const response = await POST(event);
+    const response = await POST(event);
 
-		expect(response.status).toBe(401);
-	});
+    expect(response.status).toBe(401);
+  });
 
-	it("creates a list with given name", async () => {
-		setUserId("test-user-1");
-		const event = createEvent({
-			request: new Request("http://localhost", {
-				method: "POST",
-				body: JSON.stringify({ name: "Belanja Baru" }),
-			}),
-		});
+  it("creates a list with given name", async () => {
+    setUserId("test-user-1");
+    const event = createEvent({
+      request: new Request("http://localhost", {
+        method: "POST",
+        body: JSON.stringify({ name: "Belanja Baru" }),
+      }),
+    });
 
-		const response = await POST(event);
-		const body = (await response.json()) as { list: { name: string } };
+    const response = await POST(event);
+    const body = (await response.json()) as { list: { name: string } };
 
-		expect(response.status).toBe(200);
-		expect(body.list.name).toBe("Belanja Baru");
-	});
+    expect(response.status).toBe(200);
+    expect(body.list.name).toBe("Belanja Baru");
+  });
 
-	it("defaults name to 'New List' when not provided", async () => {
-		setUserId("test-user-1");
-		const event = createEvent({
-			request: new Request("http://localhost", {
-				method: "POST",
-				body: JSON.stringify({}),
-			}),
-		});
+  it("defaults name to 'New List' when not provided", async () => {
+    setUserId("test-user-1");
+    const event = createEvent({
+      request: new Request("http://localhost", {
+        method: "POST",
+        body: JSON.stringify({}),
+      }),
+    });
 
-		const response = await POST(event);
-		const body = (await response.json()) as { list: { name: string } };
+    const response = await POST(event);
+    const body = (await response.json()) as { list: { name: string } };
 
-		expect(response.status).toBe(200);
-		expect(body.list.name).toBe("New List");
-	});
+    expect(response.status).toBe(200);
+    expect(body.list.name).toBe("New List");
+  });
 });

@@ -14,26 +14,26 @@ const toastError = () => get(_)("toast.error");
  * @param names - Item name(s), either a single string or array of strings
  */
 export async function addItems(listId: string, names: string | string[]) {
-	const nameList = Array.isArray(names) ? names : parseInput(names);
-	if (nameList.length === 0) {
-		return;
-	}
+  const nameList = Array.isArray(names) ? names : parseInput(names);
+  if (nameList.length === 0) {
+    return;
+  }
 
-	return await withToast(
-		(async () => {
-			for (const name of nameList) {
-				await api.post("/api/item", { listId, name });
-			}
-			await invalidateAll();
-		})(),
-		{
-			loading: get(_)("toast.loading"),
-			success: get(_)("toast.item.add_success", {
-				values: { count: nameList.length },
-			}),
-			error: toastError,
-		}
-	);
+  return await withToast(
+    (async () => {
+      for (const name of nameList) {
+        await api.post("/api/item", { listId, name });
+      }
+      await invalidateAll();
+    })(),
+    {
+      loading: get(_)("toast.loading"),
+      success: get(_)("toast.item.add_success", {
+        values: { count: nameList.length },
+      }),
+      error: toastError,
+    },
+  );
 }
 
 /**
@@ -43,19 +43,19 @@ export async function addItems(listId: string, names: string | string[]) {
  * @param checked - Current checked state
  */
 export async function toggleItem(itemId: string, checked: boolean) {
-	return await withToast(
-		(async () => {
-			await api.patch(`/api/item/${encodeURIComponent(itemId)}`, {
-				checked: !checked,
-			});
-			await invalidateAll();
-		})(),
-		{
-			loading: get(_)("toast.loading"),
-			success: get(_)("toast.item.toggle_success"),
-			error: toastError,
-		}
-	);
+  return await withToast(
+    (async () => {
+      await api.patch(`/api/item/${encodeURIComponent(itemId)}`, {
+        checked: !checked,
+      });
+      await invalidateAll();
+    })(),
+    {
+      loading: get(_)("toast.loading"),
+      success: get(_)("toast.item.toggle_success"),
+      error: toastError,
+    },
+  );
 }
 
 /**
@@ -65,17 +65,17 @@ export async function toggleItem(itemId: string, checked: boolean) {
  * @param name - New item name
  */
 export async function editItem(itemId: string, name: string) {
-	return await withToast(
-		(async () => {
-			await api.patch(`/api/item/${encodeURIComponent(itemId)}`, { name });
-			await invalidateAll();
-		})(),
-		{
-			loading: get(_)("toast.loading"),
-			success: get(_)("toast.item.edit_success"),
-			error: toastError,
-		}
-	);
+  return await withToast(
+    (async () => {
+      await api.patch(`/api/item/${encodeURIComponent(itemId)}`, { name });
+      await invalidateAll();
+    })(),
+    {
+      loading: get(_)("toast.loading"),
+      success: get(_)("toast.item.edit_success"),
+      error: toastError,
+    },
+  );
 }
 
 /**
@@ -84,17 +84,17 @@ export async function editItem(itemId: string, name: string) {
  * @param itemId - ID of the item to delete
  */
 export async function deleteItem(itemId: string) {
-	return await withToast(
-		(async () => {
-			await api.delete(`/api/item/${encodeURIComponent(itemId)}`);
-			await invalidateAll();
-		})(),
-		{
-			loading: get(_)("toast.loading"),
-			success: get(_)("toast.item.delete_success"),
-			error: toastError,
-		}
-	);
+  return await withToast(
+    (async () => {
+      await api.delete(`/api/item/${encodeURIComponent(itemId)}`);
+      await invalidateAll();
+    })(),
+    {
+      loading: get(_)("toast.loading"),
+      success: get(_)("toast.item.delete_success"),
+      error: toastError,
+    },
+  );
 }
 
 /**
@@ -103,25 +103,25 @@ export async function deleteItem(itemId: string) {
  * @param itemIds - Array of item IDs to reset
  */
 export async function resetItems(itemIds: string[]) {
-	if (itemIds.length === 0) {
-		return;
-	}
+  if (itemIds.length === 0) {
+    return;
+  }
 
-	return await withToast(
-		(async () => {
-			for (const id of itemIds) {
-				await api.patch(`/api/item/${encodeURIComponent(id)}`, {
-					checked: false,
-				});
-			}
-			await invalidateAll();
-		})(),
-		{
-			loading: get(_)("toast.loading"),
-			success: get(_)("toast.item.reset_success", {
-				values: { count: itemIds.length },
-			}),
-			error: toastError,
-		}
-	);
+  return await withToast(
+    (async () => {
+      for (const id of itemIds) {
+        await api.patch(`/api/item/${encodeURIComponent(id)}`, {
+          checked: false,
+        });
+      }
+      await invalidateAll();
+    })(),
+    {
+      loading: get(_)("toast.loading"),
+      success: get(_)("toast.item.reset_success", {
+        values: { count: itemIds.length },
+      }),
+      error: toastError,
+    },
+  );
 }

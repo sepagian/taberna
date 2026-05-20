@@ -13,16 +13,16 @@ const prod = process.env.NODE_ENV !== "development";
  * @returns Configured Kysely instance
  */
 export const getKysely = (d1: D1Database | null) => {
-	if (prod && d1) {
-		return new Kysely<DB>({
-			dialect: new D1Dialect({ database: d1 }),
-			plugins: [new CamelCasePlugin()],
-		});
-	}
-	return new Kysely({
-		dialect: new SqliteDialect({
-			database: async () => new Database("./src/lib/server/db/data.sqlite"),
-		}),
-		plugins: [new CamelCasePlugin()],
-	});
+  if (prod && d1) {
+    return new Kysely<DB>({
+      dialect: new D1Dialect({ database: d1 }),
+      plugins: [new CamelCasePlugin()],
+    });
+  }
+  return new Kysely({
+    dialect: new SqliteDialect({
+      database: async () => new Database("./src/lib/server/db/data.sqlite"),
+    }),
+    plugins: [new CamelCasePlugin()],
+  });
 };

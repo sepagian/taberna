@@ -5,15 +5,15 @@ import { serializeListWithStats } from "$lib/server/serializers";
 import type { RequestHandler } from "./$types";
 
 export const GET: RequestHandler = async (event) => {
-	const userId = getUserId(event);
-	if (!userId) {
-		return unauthorized();
-	}
+  const userId = getUserId(event);
+  if (!userId) {
+    return unauthorized();
+  }
 
-	const db = getDb(event);
-	const lists = await ListQueries.getByUserWithStats(db, userId);
+  const db = getDb(event);
+  const lists = await ListQueries.getByUserWithStats(db, userId);
 
-	return json({
-		lists: lists.map(serializeListWithStats),
-	});
+  return json({
+    lists: lists.map(serializeListWithStats),
+  });
 };

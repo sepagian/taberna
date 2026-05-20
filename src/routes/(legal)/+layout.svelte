@@ -1,6 +1,5 @@
 <script lang="ts">
 	import favicon from "$lib/assets/favicon.svg";
-	import "@unocss/reset/tailwind-v4.css";
 	import "uno.css";
 	import { _ } from "svelte-i18n";
 	import { Toaster } from "svelte-sonner";
