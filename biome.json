@@ -22,15 +22,7 @@
     "formatter": {
       "quoteStyle": "double"
     },
-    "globals": [
-      "beforeEach",
-      "afterEach",
-      "describe",
-      "it",
-      "expect",
-      "vi",
-      "test"
-    ]
+    "globals": ["beforeEach", "afterEach", "describe", "it", "expect", "vi", "test"]
   },
   "assist": {
     "enabled": true,
